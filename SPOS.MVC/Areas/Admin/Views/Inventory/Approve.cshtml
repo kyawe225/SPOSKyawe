@@ -1,0 +1,24 @@
+﻿@model IEnumerable<InventoryApproveViewModel>
+
+@foreach(InventoryApproveViewModel i in Model){
+    <div class="m-2 p-1 card rounded-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 lh-lg">
+                    <div class="display-6">@i.Name</div>
+                    <div class="">Company Name &nbsp;: &nbsp; @i.companyName</div>
+                    <div class="opacity-50 text-secondary">Arrived Date &nbsp; : &nbsp; @i.ArrivedDate.ToString("yyyy-MM-d")</div>
+                </div>
+                <div class="col-6">
+                    <div class="float-end">
+                        <form asp-action="approve" asp-controller="Inventory" asp-area="Admin" asp-route-id="@i.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            @*<button type="submit" class="btn btn-danger" name="id" value="@i.Id">Cancel</button>*@
+                            <button type="submit" class="btn btn-primary" name="id" value="@i.Id"> Approve</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

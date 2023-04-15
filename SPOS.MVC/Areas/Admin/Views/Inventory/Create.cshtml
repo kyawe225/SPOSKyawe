@@ -1,0 +1,47 @@
+﻿@model InventoryCreateViewModel
+<form method="post" asp-action="Create" asp-area="Admin" asp-controller="Inventory">
+    <div class="mb-2">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Name" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Number Of Items</label>
+        <input type="text" class="form-control" asp-for="NumberOfItems" placeholder="Number Of Items" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Arrive Date</label>
+        <input type="date" class="form-control" asp-for="ArrivedDate" placeholder="" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Expire Date</label> 
+        <input type="date" class="form-control" asp-for="ExpireDate" placeholder="Name" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Expire Date</label> 
+        <textarea class="form-control" asp-for="Description" placeholder="Name" ></textarea>
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Product</label>
+        <select  class="form-select" asp-for="ProductId" >
+            @foreach(ProductListViewModel item in ViewData["product_list"] as IEnumerable<ProductListViewModel>)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-2">
+        <input type="checkbox" class="form-check-input" asp-for="Perishable" />
+        <label class="form-label">Perishable</label>
+    </div> 
+    <div class="mb-2">
+        <input type="checkbox" class="form-check-input" asp-for="isSellable" />
+        <label class="form-label">Approve</label>
+    </div> 
+    <div class="mb-2">
+        <input type="checkbox" class="form-check-input" asp-for="isQualified"  />
+        <label class="form-label">Qualified To Sell</label>
+    </div>
+    <div class="mb-2">
+        <input type="submit" class="btn btn-primary w-100" value="Save" />
+    </div>
+</form>

@@ -1,0 +1,27 @@
+﻿@model CompanyCreateViewModel
+<div>
+    <form class="mb-2" asp-action="Create" method="post" asp-area="Admin" asp-controller="Company">
+        @Html.AntiForgeryToken()
+        <div class="mb-2">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Name" asp-for="Name"/>
+        </div>
+        <div>
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Email" asp-for="Email" />
+        </div>
+        <div>
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" placeholder="Phone Number" asp-for="PhoneNumber"/>
+        </div> 
+        <div>
+            <label class="form-label">Address</label>
+            <textarea class="form-control" placeholder="Address" asp-for="Address"></textarea>
+        </div>
+        <div>
+            <label class="form-label">Description</label>
+            <textarea class="form-control" placeholder="Description" asp-for="Description"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary m-2" value="Submit" />
+    </form>
+</div>

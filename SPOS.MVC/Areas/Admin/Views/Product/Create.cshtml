@@ -1,0 +1,29 @@
+﻿@model ProductCreateViewModel
+<div>
+    <form class="mb-2" asp-action="Create" method="post" asp-area="Admin" asp-controller="Product">
+        @Html.AntiForgeryToken()
+        <div class="mb-2">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Name" asp-for="Name" />
+        </div>
+        <div>
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" placeholder="Price" asp-for="Price" />
+        </div>
+        <div>
+            <label class="form-label">Supplier Company</label>
+            <select class="form-select" asp-for="CompanyId" >
+                <option value=""></option>
+                @foreach (CompanyListViewModel item in ViewData["CompanyList"] as IList<CompanyListViewModel>)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label class="form-label">Description</label>
+            <textarea class="form-control" placeholder="Description" asp-for="Description"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary m-2" value="Submit" />
+    </form>
+</div>

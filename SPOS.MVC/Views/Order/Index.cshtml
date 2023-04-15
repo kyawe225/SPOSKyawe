@@ -1,0 +1,87 @@
+﻿<div class="row">
+    <div class="col-3 mx-2 ">
+        <div class="mb-2">
+            <label for="pd-serial" class="form-label">Product Serial Number</label>
+            <input type="text" class="form-control" name="pd-serial" id="pd-serial" placeholder="Please Enter Product Serial Number" />
+        </div>
+        <div class="d-block m-auto w-25">
+            <button type="button" class="btn btn-primary" id="pd-search">Search</button>
+        </div>
+        <div class="mb-2">
+            <label for="pd-name" class="form-label">Product Serial Number</label>
+            <input type="text" class="form-control" name="pd-serial-no" id="pd-serial-no" disabled />
+        </div>
+        <div class="mb-2">
+            <label for="pd-name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="pd-name" id="pd-name" disabled />
+        </div>
+        <div class="mb-2">
+            <label for="pd-price" class="form-label">Price</label>
+            <input type="text" class="form-control" name="pd-price" id="pd-price" disabled />
+        </div>
+        <div class="mb-2">
+            <label for="pd-items" class="form-label">Items</label>
+            <input type="text" class="form-control" name="pd-items" id="pd-items" />
+        </div>
+        <div class="mb-2">
+            <label for="pd-sub" class="form-label">Sub Total</label>
+            <input type="text" class="form-control" name="pd-sub" id="pd-sub" disabled />
+        </div>
+        <div class="mb-2 w-100">
+            <input type="button" class="btn btn-primary disabled me-1 w-100" name="add-to-order" id="save-order" value="Save Order Item" disabled />
+        </div>
+    </div>
+    <div class="col-8">
+        <table class="mx-2 table w-100 table-bordered ">
+            <thead>
+                <tr>
+                    <th>No .</th>
+
+                    <th>Product Picture</th>
+
+                    <th>Product Serial Number</th>
+
+                    <th>ProductName</th>
+
+                    <th>Number Of Items</th>
+
+                    <th>Price Per Item</th>
+
+                    <th>Sub Total</th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="order-body">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">Total</td>
+                    <td id="price-column" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="6">Pay Ammount</td>
+                    <td id="pay-ammount" colspan="2"><input type="text" id="pay-input" placeholder="Enter Ammount"/></td>
+                </tr>
+                <tr>
+                    <td colspan="6">Rechange Ammount</td>
+                    <td id="rechange-ammount" colspan="2"><input type="text" id="rechange-input" disabled/></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="me-3 w-100">
+            <button name="saveOrder" id="finish-order" class="btn btn-primary m-2 w-100">Finish Order</button>
+        </div>
+    </div>
+</div>
+<div class="modal" id="c-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-body">
+            <div class="m-2" id="modal-text"></div>
+            <button class="btn btn-primary d-block mx-auto" id="close-btn">Ok</button>
+        </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/casher/order.js" defer></script>
